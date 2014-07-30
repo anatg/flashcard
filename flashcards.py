@@ -18,7 +18,6 @@ def deck_loop(deck):
     while True:
         quiz_key, quiz_value = random_pair(deck)
         print quiz_key, ": "
-        #wait for read list, move on after 2 seconds
         rlist, _, _ = select([sys.stdin], [], [], 2)
         if rlist:
             supplied_answer = sys.stdin.readline()[:-1]
