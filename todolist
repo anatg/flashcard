@@ -1,0 +1,7 @@
+1) get the game to display a question for only 5 seconds
+2) display overall score
+3) get colors working
+4) input emacs commands
+5) when a user gets an answer wrong, make sure that you display that one a bit more often
+6) allow user to add cards to the deck
+7) keep the deck in a database
