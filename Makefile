@@ -1,4 +1,6 @@
 make:
-	python flashcards.py
+	python flashcards.py $(ARG)
 clean:
 	rm *~
+time:
+	python trial.py
