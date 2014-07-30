@@ -1,5 +1,5 @@
 import random 
-import colorama
+from colorama import Fore, Back, Style
 import sys
 from select import select
 
@@ -24,11 +24,13 @@ def deck_loop(deck):
             supplied_answer = sys.stdin.readline()[:-1]
             print "supplied_answer: ", supplied_answer
             if supplied_answer == quiz_value:
-                print "great job! that's correct"
+                print (Fore.GREEN + "great job! that's correct")
+                print(Fore.RESET + Back.RESET + Style.RESET_ALL)
             elif supplied_answer == ":q" or supplied_answer == "quit":
                 sys.exit(0)
             else:
-                print "incorrect"
+                print (Fore.RED + 'incorrect')
+                print(Fore.RESET + Back.RESET + Style.RESET_ALL)
         else:
             print "Too slow. Moving on..."
 
