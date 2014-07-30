@@ -1,29 +1,42 @@
 import random 
 import colorama
 import sys
-import time
+from select import select
 
 deck = {}
 deck['a'] = 'a'
 deck['b'] = 'b'
 deck['c'] = 'c'
 
-
-def game_loop():
+'''returns quiz_key, quiz_value'''
+def random_pair(deck):
+    quiz_key = random.choice(deck.keys())
+    quiz_value = deck[quiz_key]
+    return quiz_key, quiz_value
+    
+def deck_loop(deck):
     while True:
-        quiz_key = random.choice(deck.keys())
-        supplied_answer = raw_input(quiz_key + ": ")
-        if quiz_key == supplied_answer:
-            print "great job!"
-        elif supplied_answer == ":q" or supplied_answer == "quit":
-            #print statistical break down of answers
-            print "good study session"
-            sys.exit(0)
+        quiz_key, quiz_value = random_pair(deck)
+        print quiz_key, ": "
+        #wait for read list, move on after 2 seconds
+        rlist, _, _ = select([sys.stdin], [], [], 2)
+        if rlist:
+            supplied_answer = sys.stdin.readline()[:-1]
+            print "supplied_answer: ", supplied_answer
+            if supplied_answer == quiz_value:
+                print "great job! that's correct"
+            elif supplied_answer == ":q" or supplied_answer == "quit":
+                sys.exit(0)
+            else:
+                print "incorrect"
         else:
-            print "another time"            
-        time.sleep(5)
-print "environment variable: ", (sys.argv[1])
-game_loop()
+            print "Too slow. Moving on..."
+
+deck_loop(deck)
+        
+#define a pick random function that returns the key and the value from a dictionary
+#in the game loop, serve the key, take the input, check it with the value but timeout after commandline specified number of seconds.
+#then work on coloring
+#work on reading in a file with the appropriate flashcards -- for now start with builtin emacs
 
 
-  

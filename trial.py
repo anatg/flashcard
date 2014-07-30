@@ -15,10 +15,15 @@ def get_answer():
 			print s
 		else:
 			print "No input. Moving on..."
-#        print "sleeping"
-#        time.sleep(1)
 
-get_answer()
+def test_input():
+	input = raw_input("type something: ")
+	for i in range(0,33):
+		if input == chr(i):
+			print i
+			print input
 
+
+test_input()
 
 
