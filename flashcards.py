@@ -27,7 +27,10 @@ def deck_loop(deck):
                 print (Fore.GREEN + "great job! that's correct")
                 print(Fore.RESET + Back.RESET + Style.RESET_ALL)
             elif supplied_answer == ":q" or supplied_answer == "quit":
+                print (Fore.BLUE + "good study session")
+                print(Fore.RESET + Back.RESET + Style.RESET_ALL)
                 sys.exit(0)
+
             else:
                 print (Fore.RED + 'incorrect')
                 print(Fore.RESET + Back.RESET + Style.RESET_ALL)
