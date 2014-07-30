@@ -22,20 +22,19 @@ def deck_loop(deck):
         rlist, _, _ = select([sys.stdin], [], [], 2)
         if rlist:
             supplied_answer = sys.stdin.readline()[:-1]
-            print "supplied_answer: ", supplied_answer
             if supplied_answer == quiz_value:
-                print (Fore.GREEN + "great job! that's correct")
+                print (Fore.GREEN + u'\u2713'.encode('utf8'))
                 print(Fore.RESET + Back.RESET + Style.RESET_ALL)
             elif supplied_answer == ":q" or supplied_answer == "quit":
                 print (Fore.BLUE + "good study session")
                 print(Fore.RESET + Back.RESET + Style.RESET_ALL)
                 sys.exit(0)
-
             else:
-                print (Fore.RED + 'incorrect')
+                print (Fore.RED + 'x')
                 print(Fore.RESET + Back.RESET + Style.RESET_ALL)
         else:
-            print "Too slow. Moving on..."
+            print (Fore.YELLOW + "Too slow. Moving on...")
+            print(Fore.RESET + Back.RESET + Style.RESET_ALL)
 
 deck_loop(deck)
         
