@@ -14,10 +14,7 @@ def game_loop():
         if quiz_key == supplied_answer:
             print "great job!"
         else:
-            print "another time"
-
-            
-        
+            print "another time"            
 
 game_loop()
   
